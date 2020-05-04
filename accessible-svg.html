@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progressively Enhancing Radio Buttons - replacing text with accessible SVG</title>
+  <link rel="icon" href="data:image/svg+xml,%2Fsvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>%2Ftext y=%22.9em%22 font-size=%2290%22>📻%2F/text>%2F/svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/base-styles.css">
+</head>
+<body>
+<form action="#">
+
+  <input type="radio" id="r1" name="aligned" value="left" checked> 
+  <label for="r1">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          fill="#ffffff" height="3em" width="3em" 
+          viewBox="0 0 100 100" x="0px" y="0px" 
+          aria-labelledby="title-r1" role="img">
+      <title id="title-r1">Aligned Left</title>
+      <rect x="17.04" y="25.36" width="65.91" height="6"></rect>
+      <rect x="17.04" y="39.79" width="43.87" height="6"></rect>
+      <rect x="17.04" y="54.21" width="65.91" height="6"></rect>
+      <rect x="17.04" y="68.64" width="43.87" height="6"></rect>
+      </svg>
+  </label>
+
+  <input type="radio" id="r2" name="aligned" value="center">
+  <label for="r2">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          fill="#ffffff" height="3em" width="3em" 
+          viewBox="0 0 100 100" x="0px" y="0px" 
+          aria-labelledby="title-r2" role="img">
+      <title id="title-r2">Aligned Center</title>
+      <rect x="17.04" y="25.36" width="65.91" height="6"></rect>
+      <rect x="17.04" y="39.79" width="65.91" height="6"></rect>
+      <rect x="17.04" y="54.21" width="65.91" height="6"></rect>
+      <rect x="17.04" y="68.64" width="65.91" height="6"></rect>
+      </svg>
+  </label>
+
+  <input type="radio" id="r3" name="aligned" value="right">
+  <label for="r3">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          fill="#ffffff" height="3em" width="3em" 
+          viewBox="0 0 100 100" x="0px" y="0px" 
+          aria-labelledby="title-r3" role="img">
+      <title id="title-r3">Aligned Right</title>
+      <rect x="17.04" y="25.36" width="65.91" height="6"></rect>
+      <rect x="39.08" y="39.79" width="43.87" height="6"></rect>
+      <rect x="17.04" y="54.21" width="65.91" height="6"></rect>
+      <rect x="39.08" y="68.64" width="43.87" height="6"></rect>
+      </svg>
+  </label>
+
+</form>
+
+<script src="script/nav.js"></script>
+</body>
+</html>
