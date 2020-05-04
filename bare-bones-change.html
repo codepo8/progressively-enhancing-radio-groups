@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progressively Enhancing Radio Buttons broken example</title>
+  <link rel="icon" href="data:image/svg+xml,%2Fsvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>%2Ftext y=%22.9em%22 font-size=%2290%22>📻%2F/text>%2F/svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base-styles.css">
+</head>
+<body>
+<form action="#">
+
+<input type="radio" name="aligned" value="left" checked>
+Aligned Left
+<input type="radio" name="aligned" value="center">
+Aligned Center
+<input type="radio" name="aligned" value="right">
+Aligned Right
+</form>
+<output></output>
+
+
+<script>
+const form = document.querySelector('form');
+const log = document.querySelector('output')
+
+form.addEventListener('change', function(event) {
+  let t = event.target;
+  log.innerText = t.value;
+}, false);
+</script>
+</body>
+</html>
