@@ -32,11 +32,11 @@
 const form = document.querySelector('form');
 const log = document.querySelector('output')
 
-form.addEventListener('change', function(event) {
+form.addEventListener('change', (event) => {
   let t = event.target;
   log.innerText = t.value;
-}, false);
+})
 </script>
 <script src="script/nav.js"></script>
 </body>
-</html>
+</html> 

@@ -45,3 +45,11 @@ footer {
 footer a {
   color: cornflowerblue;
 }
+button {
+  background: cornflowerblue;
+  border: none;
+  font-family: inherit;
+  border: none;
+  font-size: inherit;
+  margin-left: 2em;
+}

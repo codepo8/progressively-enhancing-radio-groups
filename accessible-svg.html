@@ -6,6 +6,66 @@
   <link rel="icon" href="data:image/svg+xml,%2Fsvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>%2Ftext y=%22.9em%22 font-size=%2290%22>📻%2F/text>%2F/svg>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/base-styles.css">
+  <style>
+        body {
+            background: #000;
+            color: #f8f8f8;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        svg {
+            fill: inherit;
+            height: 2em;
+            width: 2em;
+        } 
+        label {
+            text-align: center;
+            height: 2em;
+            width: 2em;
+            color: #fff;
+            float: left;
+        }
+        input[type=radio] {
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute !important;
+            white-space: nowrap;
+            width: 1px;
+        }
+        input[type=radio] + label {
+            background: #444444;
+            color: #ccc;
+            fill: #ddd;
+        }
+        input[type=radio]:hover + label {
+            background: #666;
+            fill: #000;
+            color: #000;
+        }
+        input[type=radio]:focus + label {
+            background: #666;
+            fill: #000;
+            color: #000;
+        }
+
+        input[type=radio]:checked:hover + label {
+            background: #fff;
+            fill: #000;
+            color: #000;
+        }
+        input[type=radio]:checked:focus + label {
+            background: #fff;
+            fill: #000;
+            color: #000;
+        }
+        input[type=radio]:checked + label {
+            background: #9AD284;
+            fill: #000;
+            color: #000;
+        }
+  </style>
 </head>
 <body>
 <form action="#">

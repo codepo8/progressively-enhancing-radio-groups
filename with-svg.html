@@ -6,6 +6,19 @@
   <link rel="icon" href="data:image/svg+xml,%2Fsvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>%2Ftext y=%22.9em%22 font-size=%2290%22>📻%2F/text>%2F/svg>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/base-styles.css">
+  <style>
+    input[type=radio] {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute !important;
+        white-space: nowrap;
+        width: 1px;
+    }
+    
+  </style>
 </head>
 <body>
 <form action="#">
@@ -45,9 +58,20 @@
         <rect x="39.08" y="68.64" width="43.87" height="6"></rect>
     </svg>
 </label>
+<output></output>
 
 </form>
 
+
+<script>
+const form = document.querySelector('form');
+const log = document.querySelector('output')
+
+form.addEventListener('change', (event) => {
+  let t = event.target;
+  log.innerText = t.value;
+})
+</script>
 <script src="script/nav.js"></script>
 </body>
 </html>
