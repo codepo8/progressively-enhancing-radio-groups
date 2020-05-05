@@ -303,7 +303,7 @@ There is a proposal to [get a has: selector into CSS](https://developer.mozilla.
 
 ## An alternative proposal fixing the above issues
 
-Big thanks to [Andrea Giammarchi](https://twitter.com/WebReflection) who [proposed an alternative on Twitter](https://twitter.com/WebReflection/status/1257624664009998336) and [created a CodePen](https://codepen.io/WebReflection/full/LYpeOaJ) to show it in action. In essence, he turned the approach around and instead of hiding the radio button and its label text, he positions the SVG above it. It works with Voiceover on Mac, but may have issues with other screenreaders. The other problem is that transparent text gets flagged by Google as spam, but then again you probably don't want your forms indexed.
+Big thanks to [Andrea Giammarchi](https://twitter.com/WebReflection) who [proposed an alternative on Twitter](https://twitter.com/WebReflection/status/1257624664009998336) and [created a CodePen](https://codepen.io/WebReflection/full/LYpeOaJ) to show it in action. In essence, he turned the approach around and instead of hiding the radio button and its label text, he positions the SVG above it. 
 
 You can see his solution [in this example](https://codepo8.github.io/progressively-enhancing-radio-groups/alternative-approach.html).
 
@@ -329,7 +329,6 @@ label {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  color: transparent;
   width: 2em;
   height: 2em;
   padding: 0;
