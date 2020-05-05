@@ -232,29 +232,14 @@ This looks great, and if you click the different icons you can see that it also 
 
 ## Making the SVG icons accessible
 
-The first thing to do is to style the SVG to allow for colour to be changed.
+The first thing to do is to style the SVG to allow for colour to be changed. We can do this by setting the `fill` to `currentColor` which means the colour of the SVG fill will now be the text colour (thanks to [Arnout "3rdEden"](https://twitter.com/3rdEden/status/1257642583670611969) for the reminder).
 
 ```CSS
 svg {
-  fill: inherit;
+  fill: currentColor;
   height: 2em;
   width: 2em;
 } 
-```
-
-Then we can change the `fill` colour to match the styles we defined earlier. 
-
-```CSS
-input[type=radio] + label {
-  background: #444444;
-  color: #ccc;
-  fill: #ddd;
-}        
-input[type=radio]:checked + label {
-  background: #9AD284;
-  fill: #000;
-  color: #000;
-}
 ```
 
 This fixes the "I have no clue where I am" issue. However, there is also another problem. We replaced the text inside the label, and thus the radio button is hidden and has no description. Something once again flagged up by [Webhint](https://webhint.io) in my editor:
@@ -315,6 +300,64 @@ This was fun and it is amazing how far you can come without having to write any 
 Another thing I am not too happy about is the need to define relationships with `ID`s and `for` and `aria-labelledby` attributes respectively. IDs have to be unique and generating them is annoying. Sure, you can re-use them in CSS and it makes for easier query selectors, but I never feel good adding one to a document that should be easily extensible. 
 
 There is a proposal to [get a has: selector into CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/:has), which would allow at least to get rid of the for-ID relationship and nest the SVG inside the label using a `label:has(>input[type=radio])` selector instead, but the browser support so far is non-existent.
+
+## An alternative proposal fixing the above issues
+
+Big thanks to [Andrea Giammarchi](https://twitter.com/WebReflection) who [proposed an alternative on Twitter](https://twitter.com/WebReflection/status/1257624664009998336) and [created a CodePen](https://codepen.io/WebReflection/full/LYpeOaJ) to show it in action. In essence, he turned the approach around and instead of hiding the radio button and its label text, he positions the SVG above it. It works with Voiceover on Mac, but may have issues with other screenreaders. The other problem is that transparent text gets flagged by Google as spam, but then again you probably don't want your forms indexed.
+
+You can see his solution [in this example](https://codepo8.github.io/progressively-enhancing-radio-groups/alternative-approach.html).
+
+The first thing I liked about his approach is that there is no need for `ID`s, as everythng is contained in the `label` itself:
+
+```xml
+<label>
+  Aligned Left
+  <input type="radio" name="aligned" value="left" checked>
+  <svg xmls="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px" y="0px">
+    <rect x="17.04" y="25.36" width="65.91" height="6"></rect>
+    <rect x="17.04" y="39.79" width="43.87" height="6"></rect>
+    <rect x="17.04" y="54.21" width="65.91" height="6"></rect>
+    <rect x="17.04" y="68.64" width="43.87" height="6"></rect>
+  </svg>
+</label>
+```
+
+In his CSS, he positions the label relative, sets the text colour to `transparent` to hide it, and set to `overflow` to `hidden` to not expand the label to the full width of the text.
+
+```CSS
+label {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: transparent;
+  width: 2em;
+  height: 2em;
+  padding: 0;
+}
+```
+He then positions SVG and input as `absolute` to make the SVG cover all the rest of the elements in the label.
+
+```CSS
+label > input, label > svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+```
+He then sets the width and height of the SVG to 100%, and applies all the other styles to the SVG itself.
+
+```CSS
+label > svg {
+  width: 100%;
+  height: 100%;
+  transition: 200ms;
+  fill: currentColor;
+}
+input[type=radio] + svg {
+  background: #444444;
+  color: #ccc;
+}
+```
 
 You can [see all the examples here on GitHub](https://codepo8.github.io/progressively-enhancing-radio-groups/bare-bones.html) and you can [fork and play with them](https://github.com/codepo8/progressively-enhancing-radio-groups/).
 
