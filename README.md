@@ -307,7 +307,7 @@ Big thanks to [Andrea Giammarchi](https://twitter.com/WebReflection) who [propos
 
 You can see his solution [in this example](https://codepo8.github.io/progressively-enhancing-radio-groups/alternative-approach.html).
 
-The first thing I liked about his approach is that there is no need for `ID`s, as everythng is contained in the `label` itself:
+The first thing I liked about his approach is that there is no need for `ID`s, as everything is contained in the `label` itself:
 
 ```xml
 <label>
